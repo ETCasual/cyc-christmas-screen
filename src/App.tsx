@@ -82,12 +82,12 @@ const arr = [
 
 function App() {
   return (
-    <div className="relative w-[4608px] flex justify-center items-center h-[1152px] font-zekton">
+    <div className="relative w-[4000px] flex justify-center items-center h-[1000px] font-zekton">
       <img
         src="/bg.jpg"
-        className="w-[4608px] h-[1152px] absolute top-0 left-0 object-center hue-rotate-90 grayscale-[70%]"
+        className="w-[4000px] h-[1000px] absolute top-0 left-0 object-center hue-rotate-90 grayscale-[70%]"
       />
-      {/* <div className="z-10 h-[1152px] grid grid-cols-7 gap-x-10 gap-y-5 w-[4608px] px-[52rem] py-[2rem]">
+      {/* <div className="z-10 h-[1000px] grid grid-cols-7 gap-x-10 gap-y-5 w-[4000px] px-[52rem] py-[2rem]">
         {arr.map(({ imgSrc, no }, i) => (
           <div
             key={i}

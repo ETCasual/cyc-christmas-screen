@@ -10,7 +10,7 @@
 .main {
   z-index: 20;
   display: flex;
-  --s: 330px; /* size  */
+  --s: 265px; /* size  */
   --m: 15px; /* margin */
   --f: calc(var(--s) * 1.732 + 4 * var(--m) - 1px);
 }
