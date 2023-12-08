@@ -197,7 +197,7 @@ const GridItem: FunctionComponent<GridItemProps> = ({
 
   return (
     <div
-      onClick={() => setDead((prev) => !prev)}
+      // onClick={() => setDead((prev) => !prev)}
       className={`div-grid relative transition-all ease-in-out duration-500 ${
         show ? "opacity-100" : "opacity-0"
       }`}
