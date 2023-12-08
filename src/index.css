@@ -31,9 +31,9 @@
 }
 
 .grid-container div.div-grid2 {
-  width: calc(var(--s) - 20px);
+  width: calc(var(--s) - 12.5px);
   margin: var(--m);
-  height: calc(calc(var(--s) - 20px) * 1.1547);
+  height: calc(calc(var(--s) - 12.5px) * 1.1547);
   display: inline-block;
   font-size: initial;
   clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
