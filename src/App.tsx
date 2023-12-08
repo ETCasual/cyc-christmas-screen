@@ -126,7 +126,7 @@ function App() {
         ))}
       </div> */}
 
-      <div className="main px-[65rem] top-10 absolute">
+      <div className="main px-[65rem] top-14 absolute">
         <div className="grid-container">
           {arr.map((item, i) => (
             <GridItem key={i} imgSrc={item.imgSrc} no={item.no} sequence={i} />
@@ -181,7 +181,7 @@ const GridItem: FunctionComponent<GridItemProps> = ({
           style={{
             backgroundImage: `url('${imgSrc}')`,
           }}
-          className={`bg-center div-grid2 flex flex-col relative transition-all h-full -left-[10px] -top-[10px] bg-cover${
+          className={`bg-center div-grid2 flex flex-col relative transition-all h-full -left-[5px] -top-[5px] bg-cover${
             dead ? " grayscale contrast-150 brightness-100" : ""
           }`}
         >
