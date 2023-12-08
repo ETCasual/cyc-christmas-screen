@@ -1,4 +1,5 @@
 import { FunctionComponent, useState } from "react";
+// @ts-expect-error this is due to no declaration file
 import useKeyPress from "react-use-keypress";
 import useKeyboardShortcut from "use-keyboard-shortcut";
 
