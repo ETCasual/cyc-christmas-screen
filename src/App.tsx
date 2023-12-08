@@ -1,78 +1,97 @@
-import { FunctionComponent, useEffect, useState } from "react";
-import { Transition } from "@headlessui/react";
+import { FunctionComponent, useState } from "react";
+import useKeyPress from "react-use-keypress";
+import useKeyboardShortcut from "use-keyboard-shortcut";
 
 const arr = [
   {
     imgSrc: "/010.jpg",
     no: "010",
+    keyPress: "q",
   },
   {
     imgSrc: "/021.jpg",
     no: "021",
+    keyPress: "w",
   },
   {
     imgSrc: "/022.jpg",
     no: "022",
+    keyPress: "e",
   },
   {
     imgSrc: "/031.jpg",
     no: "031",
+    keyPress: "r",
   },
   {
     imgSrc: "/056.jpg",
     no: "056",
+    keyPress: "t",
   },
   {
     imgSrc: "/045.jpg",
     no: "045",
+    keyPress: "y",
   },
   {
     imgSrc: "/024.jpg",
     no: "024",
+    keyPress: "a",
   },
   {
     imgSrc: "/033.jpg",
     no: "033",
+    keyPress: "s",
   },
   {
     imgSrc: "/023.jpg",
     no: "023",
+    keyPress: "d",
   },
   {
     imgSrc: "/019.jpg",
     no: "019",
+    keyPress: "f",
   },
   {
     imgSrc: "/050.jpg",
     no: "050",
+    keyPress: "g",
   },
   {
     imgSrc: "/034.jpg",
     no: "034",
+    keyPress: "h",
   },
   {
     imgSrc: "/029.jpg",
     no: "029",
+    keyPress: "z",
   },
   {
     imgSrc: "/030.jpg",
     no: "030",
+    keyPress: "x",
   },
   {
     imgSrc: "/066.jpg",
     no: "066",
+    keyPress: "c",
   },
   {
     imgSrc: "/025.jpg",
     no: "025",
+    keyPress: "v",
   },
   {
     imgSrc: "/085.jpg",
     no: "085",
+    keyPress: "b",
   },
   {
     imgSrc: "/032.jpg",
     no: "032",
+    keyPress: "n",
   },
 ];
 
@@ -129,7 +148,13 @@ function App() {
       <div className="main px-[65rem] top-14 absolute">
         <div className="grid-container">
           {arr.map((item, i) => (
-            <GridItem key={i} imgSrc={item.imgSrc} no={item.no} sequence={i} />
+            <GridItem
+              key={i}
+              imgSrc={item.imgSrc}
+              no={item.no}
+              sequence={i}
+              keyPress={item.keyPress}
+            />
           ))}
         </div>
       </div>
@@ -143,36 +168,49 @@ interface GridItemProps {
   imgSrc: string;
   no: string;
   sequence: number;
+  keyPress: string;
 }
 
 const GridItem: FunctionComponent<GridItemProps> = ({
   imgSrc,
   no,
   sequence,
+  keyPress,
 }) => {
   const [show, setShow] = useState(false);
   const [dead, setDead] = useState(false);
 
-  useEffect(() => {
+  useKeyPress(" ", () => {
     setTimeout(() => {
       setShow(true);
     }, sequence * 150);
-  }, [sequence]);
+  });
+
+  useKeyPress(keyPress, () => {
+    setDead(true);
+    console.log(keyPress, "is pressed");
+  });
+  useKeyboardShortcut([".", keyPress], () => {
+    setDead(false);
+  });
+
   return (
-    <Transition
-      as="div"
+    <div
       onClick={() => setDead((prev) => !prev)}
-      className="div-grid relative transition-all duration-1000 ease-in-out"
-      show={show}
-      enter="transition-all ease-in-out duration-500"
-      enterFrom="opacity-0"
-      enterTo="opacity-100"
-      leave="transition-all ease-in-out duration-300"
-      leaveFrom="opacity-100"
-      leaveTo="opacity-0"
+      className={`div-grid relative transition-all ease-in-out duration-500 ${
+        show ? "opacity-100" : "opacity-0"
+      }`}
     >
       <div>
         <div
+          style={{
+            boxShadow: dead
+              ? "0px 0px 33px 14px rgba(200,38,38,0.5)"
+              : "0px 0px 33px 14px rgb(22, 163, 74, 0.5)",
+            WebkitBoxShadow: dead
+              ? "0px 0px 33px 14px rgba(200,38,38,0.5)"
+              : "0px 0px 33px 14px rgb(22, 163, 74, 0.5)",
+          }}
           className={`${
             dead ? "bg-red-600 " : "bg-green-600 "
           } w-full h-full absolute transition-all`}
@@ -197,6 +235,6 @@ const GridItem: FunctionComponent<GridItemProps> = ({
           </div>
         </div>
       </div>
-    </Transition>
+    </div>
   );
 };
