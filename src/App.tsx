@@ -181,7 +181,7 @@ const GridItem: FunctionComponent<GridItemProps> = ({
           style={{
             backgroundImage: `url('${imgSrc}')`,
           }}
-          className={`bg-center div-grid2 flex flex-col relative transition-all h-full -left-[8.5px] -top-[8.5px] bg-cover${
+          className={`bg-center div-grid2 flex flex-col relative transition-all h-full -left-[10px] -top-[10px] bg-cover${
             dead ? " grayscale contrast-150 brightness-100" : ""
           }`}
         >
