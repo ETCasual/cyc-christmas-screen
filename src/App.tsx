@@ -2,6 +2,9 @@ import { FunctionComponent, useState } from "react";
 // @ts-expect-error this is due to no declaration file
 import useKeyPress from "react-use-keypress";
 import useKeyboardShortcut from "use-keyboard-shortcut";
+//@ts-expect-error no declaration file
+import useSound from "use-sound";
+import wrongChoice from "/wrongSFX.wav";
 
 const arr = [
   {
@@ -177,6 +180,7 @@ const GridItem: FunctionComponent<GridItemProps> = ({
 }) => {
   const [show, setShow] = useState(false);
   const [dead, setDead] = useState(false);
+  const [playSound] = useSound(wrongChoice);
 
   useKeyPress(" ", () => {
     setTimeout(() => {
@@ -185,6 +189,8 @@ const GridItem: FunctionComponent<GridItemProps> = ({
   });
 
   useKeyPress(keyPress, () => {
+    if (dead) return;
+    playSound();
     setDead(true);
     console.log(keyPress, "is pressed");
   });

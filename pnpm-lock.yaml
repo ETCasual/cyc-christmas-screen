@@ -5,9 +5,6 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  dom-to-image:
-    specifier: ^2.6.0
-    version: 2.6.0
   keyboardjs:
     specifier: ^2.7.0
     version: 2.7.0
@@ -23,6 +20,9 @@ dependencies:
   use-keyboard-shortcut:
     specifier: ^1.1.6
     version: 1.1.6(react-dom@18.2.0)(react@18.2.0)
+  use-sound:
+    specifier: ^4.0.1
+    version: 4.0.1(react@18.2.0)
 
 devDependencies:
   '@types/react':
@@ -1167,10 +1167,6 @@ packages:
       esutils: 2.0.3
     dev: true
 
-  /dom-to-image@2.6.0:
-    resolution: {integrity: sha512-Dt0QdaHmLpjURjU7Tnu3AgYSF2LuOmksSGsUcE6ItvJoCWTBEmiMXcqBdNSAm9+QbbwD7JMoVsuuKX6ZVQv1qA==}
-    dev: false
-
   /electron-to-chromium@1.4.605:
     resolution: {integrity: sha512-V52j+P5z6cdRqTjPR/bYNxx7ETCHIkm5VIGuyCy3CMrfSnbEpIlLnk5oHmZo7gYvDfh2TfHeanB6rawyQ23ktg==}
     dev: true
@@ -1499,6 +1495,10 @@ packages:
     dependencies:
       function-bind: 1.1.2
     dev: true
+
+  /howler@2.2.4:
+    resolution: {integrity: sha512-iARIBPgcQrwtEr+tALF+rapJ8qSc+Set2GJQl7xT1MQzWaVkFebdJhR3alVlSiUf5U7nAANKuj3aWpwerocD5w==}
+    dev: false
 
   /ignore@5.3.0:
     resolution: {integrity: sha512-g7dmpshy+gD7mh88OC9NwSGTKoc3kyLAZQRU1mt53Aw/vnvfXnbC+F/7F7QoYVKbV+KNvJx8wArewKy1vXMtlg==}
@@ -2203,6 +2203,15 @@ packages:
     dependencies:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
+  /use-sound@4.0.1(react@18.2.0):
+    resolution: {integrity: sha512-hykJ86kNcu6y/FzlSHcQxhjSGMslZx2WlfLpZNoPbvueakv4OF3xPxEtGV2YmculrIaH0tPp9LtG4jgy17xMWg==}
+    peerDependencies:
+      react: '>=16.8'
+    dependencies:
+      howler: 2.2.4
+      react: 18.2.0
     dev: false
 
   /util-deprecate@1.0.2:
