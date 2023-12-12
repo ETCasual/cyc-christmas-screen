@@ -207,14 +207,6 @@ const GridItem: FunctionComponent<GridItemProps> = ({
     >
       <div>
         <div
-          style={{
-            boxShadow: dead
-              ? "0px 0px 33px 14px rgba(200,38,38,0.5)"
-              : "0px 0px 33px 14px rgb(22, 163, 74, 0.5)",
-            WebkitBoxShadow: dead
-              ? "0px 0px 33px 14px rgba(200,38,38,0.5)"
-              : "0px 0px 33px 14px rgb(22, 163, 74, 0.5)",
-          }}
           className={`${
             dead ? "bg-red-600 " : "bg-green-600 "
           } w-full h-full absolute transition-all`}
