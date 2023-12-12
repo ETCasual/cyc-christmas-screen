@@ -64,35 +64,35 @@ const arr = [
     no: "034",
     keyPress: "h",
   },
-  {
-    imgSrc: "/029.jpg",
-    no: "029",
-    keyPress: "z",
-  },
+  // {
+  //   imgSrc: "/029.jpg",
+  //   no: "029",
+  //   keyPress: "z",
+  // },
   {
     imgSrc: "/030.jpg",
     no: "030",
-    keyPress: "x",
+    keyPress: "z",
   },
   {
     imgSrc: "/066.jpg",
     no: "066",
-    keyPress: "c",
+    keyPress: "x",
   },
   {
     imgSrc: "/025.jpg",
     no: "025",
-    keyPress: "v",
+    keyPress: "c",
   },
   {
     imgSrc: "/085.jpg",
     no: "085",
-    keyPress: "b",
+    keyPress: "v",
   },
   {
     imgSrc: "/032.jpg",
     no: "032",
-    keyPress: "n",
+    keyPress: "b",
   },
 ];
 
@@ -103,10 +103,7 @@ const arr = [
 function App() {
   return (
     <div className="relative w-[4000px] flex justify-center items-center h-[1000px] font-zekton">
-      <img
-        src="/bg.jpg"
-        className="w-[4000px] h-[1000px] absolute top-0 left-0 object-center hue-rotate-90 grayscale-[70%]"
-      />
+      <div className="w-[4000px] h-[1000px] absolute top-0 left-0 bg-black" />
       {/* <div className="z-10 h-[1000px] grid grid-cols-7 gap-x-10 gap-y-5 w-[4000px] px-[52rem] py-[2rem]">
         {arr.map(({ imgSrc, no }, i) => (
           <div
