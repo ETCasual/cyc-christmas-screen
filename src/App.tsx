@@ -1,4 +1,4 @@
-import { FunctionComponent, useState } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 // @ts-expect-error this is due to no declaration file
 import useKeyPress from "react-use-keypress";
 import useKeyboardShortcut from "use-keyboard-shortcut";
@@ -11,6 +11,7 @@ const arr = [
     imgSrc: "/010.jpg",
     no: "010",
     keyPress: "q",
+    disabled: true,
   },
   {
     imgSrc: "/021.jpg",
@@ -56,6 +57,7 @@ const arr = [
     imgSrc: "/019.jpg",
     no: "019",
     keyPress: "f",
+    disabled: true,
   },
   {
     imgSrc: "/050.jpg",
@@ -76,6 +78,7 @@ const arr = [
     imgSrc: "/030.jpg",
     no: "030",
     keyPress: "z",
+    disabled: true,
   },
   {
     imgSrc: "/066.jpg",
@@ -155,6 +158,7 @@ function App() {
               no={item.no}
               sequence={i}
               keyPress={item.keyPress}
+              disabled={item.disabled}
             />
           ))}
         </div>
@@ -170,12 +174,14 @@ interface GridItemProps {
   no: string;
   sequence: number;
   keyPress: string;
+  disabled?: boolean;
 }
 
 const GridItem: FunctionComponent<GridItemProps> = ({
   imgSrc,
   no,
   sequence,
+  disabled,
   keyPress,
 }) => {
   const [show, setShow] = useState(false);
@@ -188,15 +194,20 @@ const GridItem: FunctionComponent<GridItemProps> = ({
     }, sequence * 150);
   });
 
-  useKeyPress(keyPress, () => {
-    if (dead) return;
-    playSound();
+  useKeyPress(keyPress, (e: Event) => {
+    e.preventDefault();
+    if (dead || disabled) return;
     setDead(true);
     console.log(keyPress, "is pressed");
   });
   useKeyboardShortcut([".", keyPress], () => {
     setDead(false);
   });
+
+  useEffect(() => {
+    if (!dead) return;
+    playSound();
+  }, [dead, playSound]);
 
   return (
     <div
