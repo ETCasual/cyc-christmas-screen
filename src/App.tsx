@@ -67,7 +67,7 @@ const arr = [
   {
     imgSrc: "/034.jpg",
     no: "034",
-    keyPress: "h",
+    keyPress: "z",
   },
   // {
   //   imgSrc: "/029.jpg",
@@ -77,28 +77,28 @@ const arr = [
   {
     imgSrc: "/030.jpg",
     no: "030",
-    keyPress: "z",
+    keyPress: "x",
     disabled: true,
   },
   {
     imgSrc: "/066.jpg",
     no: "066",
-    keyPress: "x",
+    keyPress: "c",
   },
   {
     imgSrc: "/025.jpg",
     no: "025",
-    keyPress: "c",
+    keyPress: "v",
   },
   {
     imgSrc: "/085.jpg",
     no: "085",
-    keyPress: "v",
+    keyPress: "b",
   },
   {
     imgSrc: "/032.jpg",
     no: "032",
-    keyPress: "b",
+    keyPress: "n",
   },
 ];
 
